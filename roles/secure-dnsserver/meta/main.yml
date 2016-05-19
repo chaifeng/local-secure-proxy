@@ -1,0 +1,11 @@
+dependencies:
+  - { role: dnscrypt-proxy, dnscrypt_proxy: { port: 1053, resolver: cisco }}
+  - { role: dnscrypt-proxy, dnscrypt_proxy: { port: 1054, resolver: soltysiak }}
+  - { role: dnscrypt-proxy, dnscrypt_proxy: { port: 1055, resolver: d0wn-lv-ns1 }}
+  - role: dnsmasq
+    dnsmasq:
+      cn_upstream_server: 114.114.114.114
+      upstream_servers:
+        - '127.0.0.1#1053' 
+        - '127.0.0.1#1054' 
+        - '127.0.0.1#1055'

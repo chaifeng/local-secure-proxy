@@ -1,0 +1,11 @@
+- name: Local stunnel on Mac
+  hosts: mac_os_x
+  become: No
+  roles:
+    - role: secure-dnsserver
+    - role: stunnel
+      stunnel:
+        name: 'squid3'
+        accept: '127.0.0.1:3128'
+        connects:
+          - 'your.proxy.server:443'

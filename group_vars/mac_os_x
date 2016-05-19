@@ -1,0 +1,27 @@
+# -*- mode: yaml -*-
+---
+local_etc: /usr/local/etc
+
+supervisor:
+  conf: "{{ local_etc }}/supervisord.conf"
+  conf_d: "{{ local_etc }}/supervisor.d"
+  exec: /usr/local/opt/supervisor/bin/supervisord
+supervisorctl: /usr/local/bin/supervisorctl -c "{{ supervisor.conf }}"
+
+stunnel:
+  chroot: /usr/local/var/run/stunnel
+  confdir: "{{ local_etc }}/stunnel"
+  foreground: 'yes'
+  debug: warning
+  client: 'yes'
+
+dnscrypt_proxy:
+  exec: /usr/local/opt/dnscrypt-proxy/sbin/dnscrypt-proxy
+  resolvers_list: "{{ local_etc }}/dnscrypt-resolvers.csv"
+
+dnsmasq:
+  exec: /usr/local/opt/dnsmasq/sbin/dnsmasq
+  conf: "{{ local_etc }}/dnsmasq.conf"
+  conf_d: "{{ local_etc }}/dnsmasq.d"
+  cn_upstream_server: 114.114.114.114
+  log_file: /var/log/dnsmasq.log

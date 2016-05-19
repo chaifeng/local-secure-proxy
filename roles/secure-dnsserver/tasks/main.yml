@@ -1,0 +1,6 @@
+---
+- name: Change default nameserver to localhost
+  shell: |
+    networksetup -setdnsservers Wi-Fi 127.0.0.1
+  become: True
+  when: inventory_hostname == 'localhost' and '127.0.0.1' not in ansible_dns.nameservers

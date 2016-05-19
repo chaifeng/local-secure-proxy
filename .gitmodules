@@ -1,0 +1,15 @@
+[submodule "roles/supervisor"]
+	path = roles/supervisor
+	url = https://github.com/chaifeng/ansible-role-supervisor.git
+[submodule "roles/stunnel"]
+	path = roles/stunnel
+	url = https://github.com/chaifeng/ansible-role-stunnel.git
+[submodule "roles/homebrew"]
+	path = roles/homebrew
+	url = https://github.com/chaifeng/ansible-role-homebrew.git
+[submodule "roles/dnsmasq"]
+	path = roles/dnsmasq
+	url = https://github.com/chaifeng/ansible-role-dnsmasq.git
+[submodule "roles/dnscrypt-proxy"]
+	path = roles/dnscrypt-proxy
+	url = https://github.com/chaifeng/ansible-role-dnscrypt-proxy.git
