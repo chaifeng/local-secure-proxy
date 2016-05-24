@@ -1,6 +1,5 @@
 - name: Local stunnel on Mac
   hosts: mac_os_x
-  become: No
   roles:
     - role: secure-dnsserver
     - role: stunnel
