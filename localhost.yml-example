@@ -6,5 +6,5 @@
       stunnel:
         name: 'squid3'
         accept: '127.0.0.1:3128'
-        connects:
+        connect:
           - 'your.proxy.server:443'
