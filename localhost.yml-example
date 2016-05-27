@@ -1,5 +1,7 @@
 - name: Local stunnel on Mac
   hosts: mac_os_x
+  #vars_files:
+  #  - private_vars.yml
   roles:
     - role: secure-dnsserver
     - role: stunnel

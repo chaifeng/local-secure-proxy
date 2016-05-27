@@ -2,3 +2,6 @@ hosts.txt
 localhost.retry
 localhost.yml
 stunnel.pem
+group_vars/
+host_vars/
+private_vars.yml
