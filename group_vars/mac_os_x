@@ -6,6 +6,7 @@ supervisor:
   conf: "{{ local_etc }}/supervisord.conf"
   conf_d: "{{ local_etc }}/supervisor.d"
   exec: /usr/local/opt/supervisor/bin/supervisord
+  sock: /usr/local/var/run/supervisor.sock
 supervisorctl: /usr/local/bin/supervisorctl -c "{{ supervisor.conf }}"
 
 stunnel:
