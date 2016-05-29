@@ -7,9 +7,13 @@ supervisor:
   conf_d: "{{ local_etc }}/supervisor.d"
   exec: /usr/local/opt/supervisor/bin/supervisord
   sock: /usr/local/var/run/supervisor.sock
+  logfile: /usr/local/var/log/supervisord.log
+  pidfile: /usr/local/var/run/supervisord.pid
+  childlogdir: /usr/local/var/log
 supervisorctl: /usr/local/bin/supervisorctl -c "{{ supervisor.conf }}"
 
 stunnel:
+  exec: /usr/local/bin/stunnel
   chroot: /usr/local/var/run/stunnel
   confdir: "{{ local_etc }}/stunnel"
   foreground: 'yes'
