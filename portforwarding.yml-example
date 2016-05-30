@@ -1,0 +1,21 @@
+# -*- mode: yaml -*-
+---
+
+- name: 'Port forwarding'
+  hosts: all
+  roles:
+    - role: port_forwarding
+      port_forward_name: 'web'
+      port_forward_from_host: 1.2.3.4
+      port_forward_from_port: 8080
+      port_forward_to_host: 5.6.7.8
+      port_forward_to_port: 80
+    - role: port_forwarding
+      port_forward_name: 'internal-web'
+      port_forward_from_host: 192.168.1.100
+      port_forward_from_port: 8080
+      port_forward_agent_host: 1.2.3.4
+      port_forward_agent_port: 443
+      port_forward_to_host: 5.6.7.8
+      port_forward_to_port: 80
+      
