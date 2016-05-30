@@ -1,6 +1,8 @@
 hosts.txt
 *.retry
-*.yml
+localhost.yml
+portforwarding.yml
+server.yml
 stunnel.pem
 group_vars/
 host_vars/
