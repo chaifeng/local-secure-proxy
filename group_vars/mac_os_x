@@ -16,7 +16,7 @@ stunnel:
   exec: /usr/local/bin/stunnel
   chroot: /usr/local/var/run/stunnel
   confdir: "{{ local_etc }}/stunnel"
-  foreground: 'yes'
+  foreground: yes
   debug: warning
   client: 'yes'
 
