@@ -18,7 +18,7 @@ stunnel:
   confdir: "{{ local_etc }}/stunnel"
   foreground: yes
   debug: warning
-  client: 'yes'
+  client: yes
 
 dnscrypt_proxy:
   exec: /usr/local/opt/dnscrypt-proxy/sbin/dnscrypt-proxy
