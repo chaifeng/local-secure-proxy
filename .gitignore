@@ -7,3 +7,4 @@ stunnel.pem
 group_vars/
 host_vars/
 private_vars.yml
+.ansible-vault-password
