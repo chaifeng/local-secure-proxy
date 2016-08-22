@@ -17,6 +17,7 @@ dependencies:
     when: inventory_hostname == port_forward_agent_host
   - role: stunnel
     stunnel:
+      client: yes
       name: "client_{{ port_forward_name }}"
       accept: "{{ port_forward_to_port }}"
       connect: "{{ port_forward_agent_host }}:{{ port_forward_agent_port }}"
