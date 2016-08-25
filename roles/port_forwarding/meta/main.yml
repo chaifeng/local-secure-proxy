@@ -10,6 +10,7 @@ dependencies:
       disable: true
   - role: stunnel
     stunnel:
+      client: no
       name: "agent_{{ port_forward_name }}"
       accept: "{{ port_forward_agent_port }}"
       connect: "{{ (port_forward_from_host == port_forward_agent_host) | ternary('127.0.0.1', port_forward_from_host) }}:{{ port_forward_from_port }}"
