@@ -1,13 +1,6 @@
 allow_duplicates: True
 
 dependencies:
-  - role: stunnel # Due to an unknown issue of Ansible.
-                  # You CANNOT remove this role, Otherwise some dependencies will be skiped unexpected.
-    stunnel:
-      name: 'you_can_delete_this_safely'
-      accept: "443"
-      connect: '127.0.0.1:80'
-      disable: true
   - role: stunnel
     stunnel:
       client: no
