@@ -1,11 +1,13 @@
 port_forward_psk:
 
+port_forward_base_port: 44300
+
 port_forward_name: undefined_name
 port_forward_from_host: internal.undefined.hostname
 port_forward_from_port: 80
 
 port_forward_agent_host: "{{ port_forward_from_host }}"
-port_forward_agent_port: "{{ port_forward_from_port + 44300 }}"
+port_forward_agent_port: "{{ port_forward_from_port + port_forward_base_port }}"
 
 port_forward_to_host: external.undefined.hostname
 port_forward_to_port: "{{ port_forward_from_port }}"
