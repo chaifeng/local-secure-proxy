@@ -3,7 +3,7 @@
 local_etc: /usr/local/etc
 
 supervisor:
-  conf: "{{ local_etc }}/supervisord.conf"
+  conf: "{{ local_etc }}/supervisord.ini"
   conf_d: "{{ local_etc }}/supervisor.d"
   exec: /usr/local/opt/supervisor/bin/supervisord
   sock: /usr/local/var/run/supervisor.sock
