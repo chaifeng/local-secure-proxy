@@ -3,7 +3,7 @@
   when: ansible_os_family == "Darwin"
 
 - name: Ensure rinetd is running
-  shell: pgrep -laf rinetd || /usr/local/sbin/rinetd
+  shell: pgrep rinetd || /usr/local/sbin/rinetd
 
 - name: rinetd configurations
   template: src=rinetd.conf.j2 dest=/usr/local/etc/rinetd.conf
