@@ -1,2 +1,2 @@
 - name: Reload Rinetd
-  shell: pgrep -f rinetd | xargs -v kill -HUP
+  shell: pgrep -f rinetd | xargs kill -HUP
