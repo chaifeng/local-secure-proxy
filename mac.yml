@@ -1,0 +1,46 @@
+#!/usr/bin/env ansible-playbook --vault-password-file=./.ansible-vault-password --inventory-file=localhost.txt
+# -*- mode: yaml -*-
+---
+
+- name: Local proxy for MAC
+  hosts:
+    - mac_os_x
+  vars:
+    proxy_region: jp # sx143
+  vars_files:
+    - private_vars.yml
+  roles:
+    - role: stunnel
+      stunnel:
+        name: client-{{proxy_region}}-squid3
+        accept: 3130
+        connect: "{{ proxy_squid3 }}"
+    - role: stunnel
+      stunnel:
+        name: client-{{proxy_region}}-socks5
+        accept: 1082
+        connect: "{{ proxy_socks5 }}"
+    - role: rinetd
+      rinetd:
+        squid_3129:
+          bind: 0.0.0.0:3128
+          connect: localhost:3130
+        socks5_1081:
+          bind: 0.0.0.0:1080
+          connect: localhost:1082
+      tags: wip
+  tasks:
+    - name: setting system proxy
+      shell: |
+        networksetup -setwebproxy Wi-Fi 127.0.0.1 3128
+        networksetup -setsecurewebproxy Wi-Fi 127.0.0.1 3128
+        networksetup -setsocksfirewallproxy Wi-Fi 127.0.0.1 1080
+
+        networksetup -setwebproxystate Wi-Fi on
+        networksetup -setsecurewebproxystate Wi-Fi on
+        networksetup -setsocksfirewallproxystate Wi-Fi on
+
+        networksetup -setautoproxyurl Wi-Fi '{{ proxy_pac_url }}'
+        networksetup -setproxybypassdomains Wi-Fi localhost '*.local' '127.0.0.0/8' '169.254/16' '192.168/16' '172.16.0.0/12' '224.0.0.0/3' 'chaifeng.com' '*.chaifeng.com' '*.tyjie.com' "chaifeng.org" "*.chaifeng.org"
+      become: yes
+      when: ansible_os_family == "Darwin"

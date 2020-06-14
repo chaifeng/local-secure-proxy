@@ -3,8 +3,5 @@ hosts.txt
 localhost.yml
 portforwarding.yml
 server.yml
-stunnel.pem
-group_vars/
 host_vars/
-private_vars.yml
 .ansible-vault-password
